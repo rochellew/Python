@@ -4,10 +4,13 @@
 def listString(listValue):
     listAsString = ''
 
+    # If the list contains no values:
+    if len(listValue) == 0:
+        listAsString += 'This list is empty.'
+
+    # If the list contains one or more values:
     for item in listValue:
-        if len(listValue) == 0:
-            listAsString += 'This list is empty.'
-        elif listValue.index(item) != len(listValue) - 1:
+        if listValue.index(item) != len(listValue) - 1:
             listAsString += item + ', '
         elif listValue.index(item) == len(listValue) - 1:
             listAsString += 'and ' + item
@@ -15,7 +18,8 @@ def listString(listValue):
     return listAsString
 
 
-spam = ['milk', 'cheese', 'butter', 'bacon']
+groceries = ['milk', 'cheese', 'butter', 'bacon']
+empty = []
 
-print(listString(spam))
-# Write your code here :-)
+print(listString(groceries))
+print(listString(empty))
