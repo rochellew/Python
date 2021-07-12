@@ -5,7 +5,9 @@ def listString(listValue):
     listAsString = ''
 
     for item in listValue:
-        if listValue.index(item) != len(listValue) - 1:
+        if len(listValue) == 0:
+            listAsString += 'This list is empty.'
+        elif listValue.index(item) != len(listValue) - 1:
             listAsString += item + ', '
         elif listValue.index(item) == len(listValue) - 1:
             listAsString += 'and ' + item
@@ -16,3 +18,4 @@ def listString(listValue):
 spam = ['milk', 'cheese', 'butter', 'bacon']
 
 print(listString(spam))
+# Write your code here :-)
