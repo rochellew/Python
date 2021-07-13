@@ -1,3 +1,5 @@
+import unittest
+
 # Collatz sequence problem
 def collatz(number):
     if number % 2 == 0:
@@ -7,8 +9,7 @@ def collatz(number):
         print(number * 3 + 1)
         return number * 3 + 1
 
-
-print("Enter number:")
+print('Enter number:')
 
 validInput = False
 
@@ -21,4 +22,4 @@ while not validInput:
 
         validInput = True
     except ValueError:
-        print("Please enter a non-negative integer value:")
+        print('Please enter a non-negative integer value:')
