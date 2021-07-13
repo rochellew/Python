@@ -2,13 +2,13 @@ import os, sys
 from pathlib import Path
 
 HOME = Path(os.path.dirname(__file__)).parents[0]
-print(HOME)
-sys.exit()
 SRC_PATH = os.path.join(HOME, 'src')
 if SRC_PATH not in sys.path:
     sys.path.append(SRC_PATH)
 
-from src import collatz
+import unittest
+from collatz_sequence import collatz
+from scenario_decorator import scenarios
 
 # Unit test for Collatz Sequence code
 class TestCollatz(unittest.TestCase):
@@ -20,9 +20,9 @@ class TestCollatz(unittest.TestCase):
     def tearDown(self):
         return super().tearDown()
     
-    def test_collatz(self):
-        self.assertEqual(2, collatz(2))
-        self.assertEqual(16, collatz(5))
-
+    @scenarios((5,2), (16, 5))
+    def test_collatz(self, expected_output, function_input):
+        self.assertEqual(expected_output, collatz(function_input))
+        
 if __name__ == '__main__':
     unittest.main()
