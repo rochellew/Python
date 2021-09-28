@@ -1,4 +1,4 @@
-# Working with lists
+# Working with lists CHANGED
 catNames = []
 while True:
     print('Enter the name of cat ' + str(len(catNames) + 1) + ' (Or nothing to stop.)')
